@@ -45,7 +45,7 @@ function onk2019_install() {
 	$sql = "CREATE TABLE $day_table_name (
 		day mediumint(2) NOT NULL,
 		date date NOT NULL,
-		name varchar[32] NOT NULL,
+		name varchar(32) NOT NULL,
 		PRIMARY KEY  (day)
 	) $charset_collate;";
 	dbDelta( $sql );
