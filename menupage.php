@@ -3,7 +3,7 @@
  * This is the main menu interface to the plugin
  */
 
-function onk_menupage () {
+function onk2019_menupage () {
 
 	echo "<h2>Anleitung</h2>";
 

@@ -1,5 +1,5 @@
 <?php
-function onk_shortstring($str, $len = 58)
+function onk2019_shortstring($str, $len = 58)
 {
 	if ( mb_strlen($str) > $len)
 		return '<span title="' . $str . '">' . mb_substr ( $str, 0, $len-3, 'utf-8' ) . '...</span>';
@@ -7,7 +7,7 @@ function onk_shortstring($str, $len = 58)
 		return $str;
 }
 
-function onk_shortcode($atts = [])
+function onk2019_shortcode($atts = [])
 {
 	$atts = array_change_key_case((array)$atts, CASE_LOWER);
 	$atts = $wporg_atts = shortcode_atts([ 

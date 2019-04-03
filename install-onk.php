@@ -1,10 +1,10 @@
 <?php
-global $onk_db_version;
-$onk_db_version = '1.1';
+global $onk2019_db_version;
+$onk2019_db_version = '1.1';
 
-function onk_install() {
+function onk2019_install() {
 	global $wpdb;
-	global $onk_db_version;
+	global $onk2019_db_version;
 
 	$charset_collate = $wpdb->get_charset_collate();
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -51,7 +51,7 @@ function onk_install() {
 	) $charset_collate;";
 	dbDelta( $sql );
 
-	add_option( 'onk_db_version', $onk_db_version );
+	add_option( 'onk2019_db_version', $onk2019_db_version );
 }
 
 ?>

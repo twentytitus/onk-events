@@ -18,21 +18,21 @@ include 'install-onk.php';
 include 'menupage.php';
 include 'shortcode.php';
 
-register_activation_hook( __FILE__, 'onk_install' );
-register_uninstall_hook(__FILE__, 'onk_uninstall');
+register_activation_hook( __FILE__, 'onk2019_install' );
+register_uninstall_hook(__FILE__, 'onk2019_uninstall');
 
-function onk_add_menu () {
+function onk2019_add_menu () {
 	$menu_string = esc_html__('ONK-Programm', 'onk-programme');
 	$submenu_string = esc_html__('Kategorien', 'onk-categories');
 	$submenu_string2 = esc_html__('Tage', 'onk-days');
-	add_menu_page ( $menu_string, $menu_string, 'publish_posts', 'onk2019', 'onk_menupage', 'dashicons-chart-pie', 40 );
+	add_menu_page ( $menu_string, $menu_string, 'publish_posts', 'onk2019', 'onk2019_menupage', 'dashicons-chart-pie', 40 );
 }
-add_action( 'admin_menu', 'onk_add_menu' );
+add_action( 'admin_menu', 'onk2019_add_menu' );
 
-function onk_shortcodes_init()
+function onk2019_shortcodes_init()
 {
-    add_shortcode('onk2019', 'onk_shortcode');
+    add_shortcode('onk2019', 'onk2019_shortcode');
 }
-add_action('init', 'onk_shortcodes_init');
+add_action('init', 'onk2019_shortcodes_init');
 
 ?>

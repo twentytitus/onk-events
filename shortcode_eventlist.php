@@ -38,13 +38,13 @@ foreach ($result as $row)
 	
 	$o .= '<p class="onk_line">';
 	$o .= '<span class="onk_eventname">';
-	$o .= onk_shortstring(htmlspecialchars($row->name), 75);
+	$o .= onk2019_shortstring(htmlspecialchars($row->name), 75);
 	$o .= '</span>';
 	$o .= '</p>';
 	
 	$o .= '<p class="onk_line">';
 	$o .= '<span class="onk_organiser">';
-	$o .= onk_shortstring(htmlspecialchars($row->organiser), 60);
+	$o .= onk2019_shortstring(htmlspecialchars($row->organiser), 60);
 	$o .= '&nbsp;</span>';
 	$o .= '</p>';	
 	
