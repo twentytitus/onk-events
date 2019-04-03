@@ -37,7 +37,6 @@ function onk2019_install() {
 	$sql = "CREATE TABLE $category_table_name (
 		id mediumint(9) NOT NULL,
 		name varchar(255) NOT NULL,
-		late_arrival tinyint(1) DEFAULT 1 NOT NULL,
 		PRIMARY KEY  (id)
 	) $charset_collate;";
 	dbDelta( $sql );

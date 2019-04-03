@@ -97,7 +97,7 @@ function onk2019_shortcode($atts = [])
 			(isset($the_from) ? $the_from_hour : "0") . '" /> Uhr</label>';
 		$o .= '<br />';
 
-		$cats = $wpdb->get_results( "SELECT id, name, late_arrival FROM $category_table_name" );
+		$cats = $wpdb->get_results( "SELECT id, name FROM $category_table_name" );
 		$o .= '<select name="category" class="category">';
 		$o .= '<option value="" ' . (!isset($the_cat) ? "selected" : "") . '><b>Alle Kategorien</b></option>';
 		foreach ($cats as $cat) {

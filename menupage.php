@@ -21,12 +21,11 @@ function onk2019_menupage () {
 		for ($i=0; $i<sizeof($names); $i++)
 		{
 			$cat = $names[$i];
-			$late = ($_POST['late_arrival'][$i] == "yes" ? 1 : 0);
 			if ($cat != '') {
 				$the_id = (integer) $_POST['id'][$i];
 				$wpdb->insert($category_table_name, 
-					array('id' => $the_id, 'name' => $cat, 'late_arrival' => $late),
-					array('%d', '%s', '%d'));
+					array('id' => $the_id, 'name' => $cat),
+					array('%d', '%s'));
 			}
 		}
 	}
