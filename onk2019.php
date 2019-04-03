@@ -22,7 +22,7 @@ register_activation_hook( __FILE__, 'onk2019_install' );
 register_uninstall_hook(__FILE__, 'onk2019_uninstall');
 
 function onk2019_add_menu () {
-	$menu_string = esc_html__('ONK-Programm', 'onk-programme');
+	$menu_string = esc_html__('ONK 2019', 'onk-programme');
 	$submenu_string = esc_html__('Kategorien', 'onk-categories');
 	$submenu_string2 = esc_html__('Tage', 'onk-days');
 	add_menu_page ( $menu_string, $menu_string, 'publish_posts', 'onk2019', 'onk2019_menupage', 'dashicons-chart-pie', 40 );
