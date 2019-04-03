@@ -13,7 +13,7 @@ function onk_menupage () {
 
 	global $wpdb;
 
-	$category_table_name = $wpdb->prefix . 'onk2018_categories';
+	$category_table_name = $wpdb->prefix . 'onk2019_categories';
 	
 	if (isset($_POST['button_add'])) {
 		$wpdb->query("TRUNCATE $category_table_name");
@@ -33,7 +33,7 @@ function onk_menupage () {
 
 	$result = $wpdb->get_results( "SELECT * FROM $category_table_name" ); 
 
-	echo '<form action="' . $_SERVER['PHP_SELF'] . '?page=onk2018-categories" method="post" name="theForm">';
+	echo '<form action="' . $_SERVER['PHP_SELF'] . '?page=onk2019-categories" method="post" name="theForm">';
 	
 	echo '<table>';
 	echo '<tr><td>';
@@ -72,7 +72,7 @@ function onk_menupage () {
 
 	global $wpdb;
 
-	$day_table_name = $wpdb->prefix . 'onk2018_days';
+	$day_table_name = $wpdb->prefix . 'onk2019_days';
 	
 	if (isset($_POST['button_add'])) {
 		$wpdb->query("TRUNCATE $day_table_name");
@@ -92,7 +92,7 @@ function onk_menupage () {
 	$result = $wpdb->get_results( "SELECT * FROM $day_table_name" ); 
 
 	echo '<br />';
-	echo '<form action="' . $_SERVER['PHP_SELF'] . '?page=onk2018-days" method="post" name="theForm">';
+	echo '<form action="' . $_SERVER['PHP_SELF'] . '?page=onk2019-days" method="post" name="theForm">';
 	
 	echo '<table>';
 	echo '<tr><td><b>Tage:</b></td></tr>';

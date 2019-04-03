@@ -17,9 +17,9 @@ function onk_shortcode($atts = [])
 	if (empty($atts['view'])) { $atts['view'] = 'list'; }
 
 	global $wpdb;
-	$table_name = $wpdb->prefix . 'onk2018';
-	$category_table_name = $wpdb->prefix . 'onk2018_categories';
-	$day_table_name = $wpdb->prefix . 'onk2018_days';
+	$table_name = $wpdb->prefix . 'onk2019';
+	$category_table_name = $wpdb->prefix . 'onk2019_categories';
+	$day_table_name = $wpdb->prefix . 'onk2019_days';
 	
 	preg_match('/([^?]*).*/', $_SERVER["REQUEST_URI"], $base_uri);
 	$base_uri = $base_uri[1];
