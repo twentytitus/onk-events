@@ -70,7 +70,7 @@ $markers .= "var myIcon = L.divIcon({" .
 		"html: '<div class=onk_map_icon_info><p class=onk_map_icon_text>&#x2139;</p></div>', " .
 		"className: 'onk_map_icon_wrapper' }); \n";
 $markers .= "var marker_info = L.marker([52.47918, 13.43766], {icon: myIcon}).addTo(mymap); \n";
-$markers .= 'marker_info.bindPopup("<div class=\"onk_map info\"><div class=onk_eventname>Offenes-Neukölln-Infostand</div><div class=onk_organiser>Das ganze Wochenende stehen wir auf dem Alfred-Scholz-Platz (U Karl-Marx-Straße) und freuen uns, mit euch ins Gespräch zu kommen.</div><div class=onk_organiser>Es gibt Musik, Getränke und jede Menge Infomaterial rund um das Festival und die beteiligten Akteur*innen.</div><div class=onk_when>Fr, 1. Juni 14-20 Uhr<br>Sa, 2. Juni 10-20 Uhr<br>So, 3. Juni 12-18 Uhr</div></div>");' . "\n";
+$markers .= 'marker_info.bindPopup("<div class=\"onk_map info\"><div class=onk_eventname>Offenes-Neukölln-Infostand</div><div class=onk_organiser>Das ganze Wochenende stehen wir vor dem Rathaus Neukölln und freuen uns, mit euch ins Gespräch zu kommen.</div><div class=onk_organiser>Es gibt Musik, Getränke und jede Menge Infomaterial rund um das Festival und die beteiligten Akteur*innen.</div><div class=onk_when>Fr, 24. Mai 15-20 Uhr<br>Sa, 25. Mai 10-20 Uhr<br>So, 26. Mai 11-18 Uhr</div></div>");' . "\n";
 
 echo '<script type="text/javascript">';
 echo "<!--\n";
