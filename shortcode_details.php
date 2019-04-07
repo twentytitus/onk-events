@@ -1,8 +1,8 @@
 <?php	
-$row = $wpdb->get_results( "SELECT * FROM $table_name WHERE id = " . $atts['id'] ); 
+$row = $wpdb->get_results( "SELECT * FROM $table_name WHERE id = " . $atts['id'] );
 $row = $row[0];
 $days = $wpdb->get_results( "SELECT day, date, name FROM $day_table_name ORDER BY day" );
-$categories = $wpdb->get_results( "SELECT id, name FROM $category_table_name WHERE id IN (" . 
+$categories = $wpdb->get_results( "SELECT id, name FROM $category_table_name WHERE id IN (" .
 	htmlspecialchars($row->categories) . ") ORDER BY name" );
 
 if ( empty( $row ) ) {
@@ -13,8 +13,8 @@ if ( empty( $row ) ) {
 else {
 	$o .= '<div class="onk_details">';
 
-	$o .= '<div class="onk_details_number onk_map_icon_day' . (integer) $row->day . '">' . 
-		'<p class="onk_map_icon_text">' . (integer) $row->id . 
+	$o .= '<div class="onk_details_number onk_map_icon_day' . (integer) $row->day . '">' .
+		'<p class="onk_map_icon_text">' . (integer) $row->id .
 		'</p></div>';	
 	
 	$o .= '<h3 class="onk_details_eventname">';
@@ -23,18 +23,28 @@ else {
 	
 	if (sizeof($categories) > 0) {
 		$o .= '<p class="onk_details_categories">';
-		$category_fun = function($entry) { 
-			return '<img src="' . plugin_dir_url(__FILE__) . '/icons/ONK_Programm_Icons_' . (integer) $entry->id . '.png"> ' 
-				. htmlspecialchars($entry->name); 
+		$category_fun = function($entry) {
+			// return '<img src="' . plugin_dir_url(__FILE__) . '/icons/ONK_Programm_Icons_' . (integer) $entry->id . '.png"> '
+			// 	. htmlspecialchars($entry->name);
+			return $entry->name;
 		};
 		$o .= implode(' &nbsp; ', array_map($category_fun, $categories));
 		$o .= '</p>';
 	}
+        if ($row->kids == 1) {
+		$o .= '<p class="onk_details_organiser">kinderfreundlich</p>';
+        }
+        if ($row->wheelchair == 1) {
+		$o .= '<p class="onk_details_organiser">barrierefrei</p>';
+        }
+        if ($row->wheelchair == 2) {
+		$o .= '<p class="onk_details_organiser">eingeschränkt barrierefrei</p>';
+        }
 
 	$o .= '<p class="onk_details_organiser">';
 	$o .= 'Veranstalter*in: ';
-	if (!empty ($row->link_organiser)) 
-		$o .= '<a href="' . htmlspecialchars($row->link_organiser) . '" target="blank">' 
+	if (!empty ($row->link_organiser))
+		$o .= '<a href="' . htmlspecialchars($row->link_organiser) . '" target="blank">'
 			. htmlspecialchars($row->organiser) . '</a>';
 	else
 		$o .= htmlspecialchars($row->organiser);
@@ -53,7 +63,7 @@ else {
 	
 	$o .= '<p class="onk_details_where">';
 	$o .= htmlspecialchars($row->place);
-	if ($row->address != "") { 
+	if ($row->address != "") {
 		$o .= ', ' . htmlspecialchars($row->address);
 	}
 	if ($row->coord1 != "0.0000" & $row->coord2 != 0.0000) {
@@ -120,9 +130,9 @@ else {
 		coords = [ <?php echo $row->coord1; ?> , <?php echo $row->coord2; ?> ];
 		day = <?php echo $row->day; ?>;
 		mymap = add_map().setView(coords, 17);
-                var myIcon = L.divIcon({html: '<?php echo "<div class=" . $icon_class . 
+                var myIcon = L.divIcon({html: '<?php echo "<div class=" . $icon_class .
 			"><p class=onk_map_icon_text>" . $row->id . "</p></div>"; ?>', className: 'onk_map_icon_wrapper'});
-		var marker = L.marker(coords, {icon: myIcon}).addTo(mymap); 
+		var marker = L.marker(coords, {icon: myIcon}).addTo(mymap);
 		document.write('<p class="onk_details_where">');
 		document.write('<?php echo htmlspecialchars($row->address); ?>');
 		document.write(' <a href="<?php echo $maplink; ?>" target="blank">(große Karte)</a>');
