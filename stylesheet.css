@@ -1,4 +1,10 @@
-#mapid { height: 760px; border-radius: 24px; }
+#mapid {
+	height: 760px;
+	border-radius: 24px;
+	font-style: normal;
+	font-size: 80%;
+}
+
 @media screen and (max-height: 600px) {
 	#mapid { height: 580px; }
 }
@@ -87,7 +93,7 @@
 .onk_filter select {
 	background-color: #f6f6f6;
 	border: 0;
-	margin-top: .3em;
+	margin: .3em 0 .3em 0;
 	width: 15em;
 	height: 2.2em;
 	font-family: Source Sans Pro, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
@@ -261,6 +267,10 @@ a.leaflet-popup-close-button {
 	text-decoration: none;
 	box-shadow: none;
 }
+.leaflet-control-attribution,
+.leaflet-control-attribution a {
+	font-size: 10px;
+}
 .onk_map div {
 	text-align: center;
 	color: #555;
@@ -361,13 +371,28 @@ a.leaflet-popup-close-button {
 	text-align: center;
 }
 
+.onk_details_categories {
+	padding: 0.5em 0 0 0;
+	text-align: center;
+        font-size: 85%;
+}
+
+.onk_details_properties {
+	padding: 0.6em 0 1.8em 0;
+	font-style: italic;
+	text-align: right;
+        font-size: 85%;
+}
+
 .onk_details_organiser {
+	padding: 1em 0 0 0;
 	font-style: italic;
 	text-align: center;
 }
 
 .onk_details_description {
 	background-color: #f6f6f6;
+        border-left: 3px solid #70a99a;
 	margin: 2em 0 !important;
 	padding: 1em;
 }
@@ -399,11 +424,6 @@ a.leaflet-popup-close-button {
 }
 
 .onk_details_where {
-	text-align: center;
-}
-
-.onk_details_categories {
-	padding: 1em 0 2em 0;
 	text-align: center;
 }
 

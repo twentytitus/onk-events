@@ -64,6 +64,14 @@ function onk2019_shortcode($atts = [])
 					. " OR categories LIKE '%," . $the_cat . ",%'"
 					. " OR categories LIKE '%," . $the_cat . "')";
 		}
+		if (isset($_GET['onlykids'])) {
+			$the_onlykids = (integer) $_GET['onlykids'];
+			$sql_where[] = "kids = 1";
+		}
+		if (isset($_GET['onlywheelchair'])) {
+			$the_onlywheelchair = (integer) $_GET['onlywheelchair'];
+			$sql_where[] = "wheelchair IN (1, 2)";
+		}
 		if (isset($_GET['search']) & $_GET['search'] != "") {
 			$the_search_NOT_ESCAPED = $_GET['search'];
 			$search_fields = Array('name', 'organiser', 'description', 'address');
@@ -87,13 +95,13 @@ function onk2019_shortcode($atts = [])
 
 		$days = $wpdb->get_results( "SELECT day, date, name FROM $day_table_name ORDER BY day" );
 
-		$o .= '<label><input type="checkbox" name="dayfilter[]" value="1"' . 
+		$o .= '<label><input type="checkbox" name="dayfilter[]" value="1"' .
 			(!isset($the_day1) || $the_day1 ? " checked" : "") . '/>' . htmlspecialchars($days[0]->name) . '</label>';
-		$o .= '<label><input type="checkbox" name="dayfilter[]" value="2"' . 
+		$o .= '<label><input type="checkbox" name="dayfilter[]" value="2"' .
 			(!isset($the_day2) || $the_day2 ? " checked" : "") . '/>' . htmlspecialchars($days[1]->name) . '</label>';
-		$o .= '<label><input type="checkbox" name="dayfilter[]" value="3"' . 
+		$o .= '<label><input type="checkbox" name="dayfilter[]" value="3"' .
 			(!isset($the_day3) || $the_day3 ? " checked" : "") . '/>' . htmlspecialchars($days[2]->name) . '</label>';
-		$o .= '<label>ab <input type="number" name="from" min="0", max="23" value="' . 
+		$o .= '<label>ab <input type="number" name="from" min="0", max="23" value="' .
 			(isset($the_from) ? $the_from_hour : "0") . '" /> Uhr</label>';
 		$o .= '<br />';
 
@@ -101,10 +109,17 @@ function onk2019_shortcode($atts = [])
 		$o .= '<select name="category" class="category">';
 		$o .= '<option value="" ' . (!isset($the_cat) ? "selected" : "") . '><b>Alle Kategorien</b></option>';
 		foreach ($cats as $cat) {
-			$o .= '<option value="' . $cat->id . '" ' . ($cat->id == $the_cat ? "selected" : "") . '>' 
+			$o .= '<option value="' . $cat->id . '" ' . ($cat->id == $the_cat ? "selected" : "") . '>'
 				. $cat->name . '</option>';
 		}
 		$o .= '</select>';
+		$o .= '<br />';
+		$o .= '<span style="font-size: 70%">';
+		$o .= '<label><input type="checkbox" name="onlykids" value="1"' .
+			($the_onlykids ? " checked" : "") . '/>nur kinderfreundlich</label>';
+		$o .= '<label><input type="checkbox" name="onlywheelchair" value="1"' .
+			($the_onlywheelchair ? " checked" : "") . '/>nur barrierefrei</label>';
+		$o .= '</span>';
 		$o .= '<br />';
 		$o .= '<input type="submit" value="Filtern">';
 		$o .= '</form>';

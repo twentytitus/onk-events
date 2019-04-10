@@ -31,15 +31,6 @@ else {
 		$o .= implode(' &nbsp; ', array_map($category_fun, $categories));
 		$o .= '</p>';
 	}
-        if ($row->kids == 1) {
-		$o .= '<p class="onk_details_organiser">kinderfreundlich</p>';
-        }
-        if ($row->wheelchair == 1) {
-		$o .= '<p class="onk_details_organiser">barrierefrei</p>';
-        }
-        if ($row->wheelchair == 2) {
-		$o .= '<p class="onk_details_organiser">eingeschränkt barrierefrei</p>';
-        }
 
 	$o .= '<p class="onk_details_organiser">';
 	$o .= 'Veranstalter*in: ';
@@ -48,7 +39,19 @@ else {
 			. htmlspecialchars($row->organiser) . '</a>';
 	else
 		$o .= htmlspecialchars($row->organiser);
-	$o .= '</p><br />';
+	$o .= '</p>';
+
+	$o .= '<p class="onk_details_properties">';
+        if ($row->kids == 1) {
+		$o .= '&#127880; kinderfreundlich';
+        }
+        if ($row->wheelchair == 1) {
+		$o .= ' &#9855; barrierefrei';
+        }
+        if ($row->wheelchair == 2) {
+		$o .= ' <span style="opacity: 0.5">&#9855;</span> eingeschränkt barrierefrei';
+        }
+	$o .= '</p>';
 
 	$o .= '<p class="onk_details_when">';
 	$o .= strftime( '%A, %e. %B', strtotime( htmlspecialchars($days[(integer) $row->day-1]->date) ) );
