@@ -49,7 +49,7 @@ else {
 		$o .= ' &#9855; barrierefrei';
         }
         if ($row->wheelchair == 2) {
-		$o .= ' <span style="opacity: 0.5">&#9855;</span> eingeschränkt barrierefrei';
+		$o .= ' <span class="limited_accessibility">&#9855;</span> eingeschränkt barrierefrei';
         }
 	$o .= '</p>';
 

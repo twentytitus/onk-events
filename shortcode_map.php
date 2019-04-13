@@ -56,13 +56,24 @@ foreach ($result as $row)
 			$s .= ' Uhr';
 		}
 		$s .= "</div>";
+
+		$s .= "<p class='onk_properties'>";
+	        if ( $row->kids == 1 ) {
+			$s .= "<span title='kinderfreundlich'>&#127880;</span>";
+		}
+	        if ( $row->wheelchair == 1 ) {
+			$s .= "<span title='barrierefrei'>&#9855;</span>";
+		}
+	        if ( $row->wheelchair == 2 ) {
+			$s .= "<span title='eingeschränkt barrierefrei' class='limited_accessibility'>&#9855;</span>";
+		}
+		$s .= "</p>";
 		
 		$s .= '</a>';
 
 		$s .= "</div>";
 
 		$markers .= 'marker' . $i . '.bindPopup("' . $s . '");' . "\n";
-		/* $markers .= 'marker' . $i . '.bindTooltip("' . $row->id . '", {opacity: 0});' . "\n"; */
 		$i++;
 	}
 }

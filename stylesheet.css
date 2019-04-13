@@ -212,6 +212,10 @@ a.onk_eventlink {
 .onk_time_end {
 }
 
+.onk_properties {
+	float: right;
+}
+
 .onk_number {
 	position: absolute;
 	bottom: 9px;
@@ -221,6 +225,10 @@ a.onk_eventlink {
 }
 .onk_number .onk_map_icon_text {
 	transform: rotate(-45deg);
+}
+
+.limited_accessibility {
+	opacity: 0.4;
 }
 
 .onk_line, p.onk_line {
@@ -304,12 +312,20 @@ a.leaflet-popup-close-button {
 }
 .onk_map .onk_when {
 }
+.onk_map .onk_properties {
+	position: fixed;
+	background-color: #fff;
+	border-radius: 2px;
+	right: 0;
+	bottom: -2em;
+}
 .leaflet-popup-content-wrapper {
 	border-radius: 0 !important;
 }
 .leaflet-popup-content {
 	margin: 4px 6px !important;
 }
+.onk_map_icon_day0,
 .onk_map_icon_day1,
 .onk_map_icon_day2,
 .onk_map_icon_day3,
@@ -332,6 +348,9 @@ a.leaflet-popup-close-button {
 }
 .onk_map_icon_info {
 	background-color: #70d585;
+}
+.onk_map_icon_day0 {
+	background-color: #fff;
 }
 .onk_map_icon_day1 {
 	background-color: #f14145;

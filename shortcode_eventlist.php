@@ -16,11 +16,9 @@ foreach ($result as $row)
 		$o .= '</div>';
 	}
 
-// TODO: use day table	
 	if ($row->day != $old_day) {
 		$o .= '<div class="onk_day_header">' 
 			. htmlspecialchars($days[(integer) $row->day-1]->name)
-//			. ', ' . strftime( '%-d.%-m.', strtotime( htmlspecialchars($days[(integer) $row->day-1]->date) ) ) 
 			. '</div>';
 		$day_class = 'onk_general_day' . htmlspecialchars($row->day);
 	}	
@@ -35,8 +33,22 @@ foreach ($result as $row)
 
 	$o .= '<a class="onk_eventlink" href="' . $base_uri . '?' . $details_link . '">';
 	$o .= '<div class="onk_general ' . $day_class . '">';
-	
+
 	$o .= '<p class="onk_line">';
+
+	if ( $the_onlywheelchair ) {
+		$o .= "<span class='onk_properties'>";
+		if ( $row->wheelchair == 1 ) {
+			$o .= "<span title='barrierefrei'>&#9855;</span>";
+		} else if ( $row->wheelchair == 2 ) {
+			$o .= "<span title='eingeschränkt barrierefrei' class='limited_accessibility'>&#9855;</span>";
+		}
+		$o .= "</span>";
+	}
+	if ( $the_onlykids ) {
+		$o .= "<span title='kinderfreundlich' class='onk_properties'>&#127880;</span>";
+	}
+
 	$o .= '<span class="onk_eventname">';
 	$o .= onk2019_shortstring(htmlspecialchars($row->name), 75);
 	$o .= '</span>';
@@ -53,6 +65,9 @@ foreach ($result as $row)
 		'</p></div>';	
 
 	$o .= '<p class="onk_time">';
+	if ( $row->day == 0 ) {
+		$o .= 'Do, 23. Mai, ';
+	}
 	if ( $row->time_start != '00:00:00' ) {
 		$o .= date( 'G:i', strtotime( htmlspecialchars($row->time_start) ) ) . ' Uhr';
 		if ( $row->time_end != '00:00:00' ) {
@@ -64,8 +79,9 @@ foreach ($result as $row)
 		$o .= '<span class="onk_minitext">Tag & Nacht</span>';
 	}
 	$o .= '</p>';
-	
+
 	$o .= '</div>';
+
 	$o .= '</a>';
 	
 	$old_day = $row->day;

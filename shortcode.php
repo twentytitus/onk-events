@@ -10,8 +10,13 @@ function onk2019_shortstring($str, $len = 58)
 function onk2019_shortcode($atts = [])
 {
 	$atts = array_change_key_case((array)$atts, CASE_LOWER);
+	if ( isset($_GET['id']) ) {
+		$the_id = (integer) $_GET['id'];
+	} else {
+		$the_id = -1;
+	}
 	$atts = $wporg_atts = shortcode_atts([ 
-		'id' => (integer) $_GET['id'], 
+		'id' => $the_id,
 		'view' => preg_replace("/[^a-zA-Z]/", "", $_GET['view'])
 	], $atts, $tag);
 	if (empty($atts['view'])) { $atts['view'] = 'list'; }
@@ -28,7 +33,7 @@ function onk2019_shortcode($atts = [])
 	
 	$o = '<link rel="stylesheet" href="' . plugin_dir_url(__FILE__) . 'stylesheet.css" type="text/css">';
 		
-	if ($atts['id'] == 0) {
+	if ($atts['id'] == -1) {
 
 		$sql_where = [];
 	
