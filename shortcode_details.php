@@ -54,7 +54,8 @@ else {
 	$o .= '</p>';
 
 	$o .= '<p class="onk_details_when">';
-	$o .= strftime( '%A, %e. %B', strtotime( htmlspecialchars($days[(integer) $row->day-1]->date) ) );
+	// FIXME: There is a better way to get the day's index
+	$o .= strftime( '%A, %e. %B', strtotime( htmlspecialchars($days[(integer) $row->day]->date) ) );
 	if ( $row->time_start != '00:00:00' ) {
 		$o .= ' ' . date( 'G:i', strtotime( htmlspecialchars($row->time_start) ) );
 		if ( $row->time_end != '00:00:00' ) {

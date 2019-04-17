@@ -101,11 +101,11 @@ function onk2019_shortcode($atts = [])
 		$days = $wpdb->get_results( "SELECT day, date, name FROM $day_table_name ORDER BY day" );
 
 		$o .= '<label><input type="checkbox" name="dayfilter[]" value="1"' .
-			(!isset($the_day1) || $the_day1 ? " checked" : "") . '/>' . htmlspecialchars($days[0]->name) . '</label>';
+			(!isset($the_day1) || $the_day1 ? " checked" : "") . '/>' . htmlspecialchars($days[1]->name) . '</label>';
 		$o .= '<label><input type="checkbox" name="dayfilter[]" value="2"' .
-			(!isset($the_day2) || $the_day2 ? " checked" : "") . '/>' . htmlspecialchars($days[1]->name) . '</label>';
+			(!isset($the_day2) || $the_day2 ? " checked" : "") . '/>' . htmlspecialchars($days[2]->name) . '</label>';
 		$o .= '<label><input type="checkbox" name="dayfilter[]" value="3"' .
-			(!isset($the_day3) || $the_day3 ? " checked" : "") . '/>' . htmlspecialchars($days[2]->name) . '</label>';
+			(!isset($the_day3) || $the_day3 ? " checked" : "") . '/>' . htmlspecialchars($days[3]->name) . '</label>';
 		$o .= '<label>ab <input type="number" name="from" min="0", max="23" value="' .
 			(isset($the_from) ? $the_from_hour : "0") . '" /> Uhr</label>';
 		$o .= '<br />';

@@ -1,7 +1,7 @@
 <?php
 // parse_str($_SERVER['QUERY_STRING'], $query_string);
 
-$old_day = -1;
+$old_day = 0;
 $old_time = -1;
 foreach ($result as $row)
 {
@@ -18,7 +18,8 @@ foreach ($result as $row)
 
 	if ($row->day != $old_day) {
 		$o .= '<div class="onk_day_header">' 
-			. htmlspecialchars($days[(integer) $row->day-1]->name)
+			// FIXME: There is a better way to do this
+			. htmlspecialchars($days[(integer) $row->day]->name)
 			. '</div>';
 		$day_class = 'onk_general_day' . htmlspecialchars($row->day);
 	}	

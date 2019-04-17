@@ -47,7 +47,8 @@ foreach ($result as $row)
 		$s .= "&nbsp;</div>";
 	
 		$s .= "<div class='onk_when'>";
-		$s .= strftime( '%A, %e. %B', strtotime( htmlspecialchars($days[(integer) $row->day-1]->date) ) );
+		// FIXME: There is a better way to get the day's index
+		$s .= strftime( '%A, %e. %B', strtotime( htmlspecialchars($days[(integer) $row->day]->date) ) );
 			if ( $row->time_start != '00:00:00' ) {
 				$s .= ' ' . date( 'G:i', strtotime( htmlspecialchars($row->time_start) ) );
 				if ( $row->time_end != '00:00:00' ) {
