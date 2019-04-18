@@ -120,10 +120,14 @@ function onk2019_shortcode($atts = [])
 		$o .= '</select>';
 		$o .= '<br />';
 		$o .= '<span style="font-size: 70%">';
-		$o .= '<label><input type="checkbox" name="onlykids" value="1"' .
-			($the_onlykids ? " checked" : "") . '/>nur kinderfreundlich</label>';
-		$o .= '<label><input type="checkbox" name="onlywheelchair" value="1"' .
-			($the_onlywheelchair ? " checked" : "") . '/>nur barrierefrei</label>';
+		$o .= '<label class="property">' .
+			'<input type="checkbox" name="onlykids" value="1"' .
+			($the_onlykids ? " checked" : "") . '/>&#127880; kinderfreundlich' .
+			'</label>';
+		$o .= '<label class="property">' .
+			'<input type="checkbox" name="onlywheelchair" value="1"' .
+			($the_onlywheelchair ? " checked" : "") . '/>&#9855; barrierefrei' .
+			'</label>';
 		$o .= '</span>';
 		$o .= '<br />';
 		$o .= '<input type="submit" value="Filtern">';

@@ -37,18 +37,16 @@ foreach ($result as $row)
 
 	$o .= '<p class="onk_line">';
 
-	if ( $the_onlywheelchair ) {
-		$o .= "<span class='onk_properties'>";
-		if ( $row->wheelchair == 1 ) {
-			$o .= "<span title='barrierefrei'>&#9855;</span>";
-		} else if ( $row->wheelchair == 2 ) {
-			$o .= "<span title='eingeschränkt barrierefrei' class='limited_accessibility'>&#9855;</span>";
-		}
-		$o .= "</span>";
+	$o .= "<span class='onk_properties'>";
+	if ( $row->wheelchair == 1 ) {
+		$o .= "<span title='barrierefrei'>&#9855;</span>";
+	} else if ( $row->wheelchair == 2 ) {
+		$o .= "<span title='eingeschränkt barrierefrei' class='limited_accessibility'>&#9855;</span>";
 	}
-	if ( $the_onlykids ) {
-		$o .= "<span title='kinderfreundlich' class='onk_properties'>&#127880;</span>";
+	if ( $row->kids == 1 ) {
+		$o .= "<span title='kinderfreundlich'>&#127880;</span>";
 	}
+	$o .= "</span>";
 
 	$o .= '<span class="onk_eventname">';
 	$o .= onk2019_shortstring(htmlspecialchars($row->name), 75);
@@ -61,9 +59,7 @@ foreach ($result as $row)
 	$o .= '&nbsp;</span>';
 	$o .= '</p>';	
 	
-	$o .= '<div class="onk_number onk_map_icon_day' . (integer) $row->day . '">' . 
-		'<p class="onk_map_icon_text">' . (integer) $row->id . 
-		'</p></div>';	
+	$o .= '<div class="onk_number onk_largenumber">' . (integer) $row->id . '</div>';
 
 	$o .= '<p class="onk_time">';
 	if ( $row->day == 0 ) {
