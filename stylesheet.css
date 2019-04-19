@@ -91,22 +91,22 @@
 	background-color: #fff;
 	color: #333;
 	border: 0;
+	margin: 0 -.3em 0 -.3em;
 	width: 3em;
 	font-family: Source Sans Pro, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 	font-size: 110%;
-}
-.onk_filter input[type="time"]::-clear-button {
-	width: 0;
-	height: 0;
 }
 .onk_filter select {
 	background-color: #f6f6f6;
 	border: 0;
 	margin: .3em 0 .3em 0;
-	width: 15em;
-	height: 2.2em;
+	width: 14em;
+	height: 2em;
 	font-family: Source Sans Pro, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 	font-size: 120%;
+}
+.onk_filter select.dayselect {
+	width: 6em;
 }
 
 .onk_filter button,

@@ -36,22 +36,9 @@ function onk2019_shortcode($atts = [])
 	if ($atts['id'] == -1) {
 
 		$sql_where = [];
-	
-		if (isset($_GET['dayfilter'])) {
-			$the_day1 = in_array("1", $_GET['dayfilter']);
-			$the_day2 = in_array("2", $_GET['dayfilter']);
-			$the_day3 = in_array("3", $_GET['dayfilter']);
-		} else {
-			$the_day1 = 1;
-			$the_day2 = 1;
-			$the_day3 = 1;
-		}
-		if (!$the_day1 || !$the_day2 || !$the_day3) {
-			$sql_day = '';
-			if ($the_day1) $sql_day .= 'day = 1 OR ';
-			if ($the_day2) $sql_day .= 'day = 2 OR ';
-			if ($the_day3) $sql_day .= 'day = 3 OR ';
-			$sql_where[] = substr($sql_day, 0, strlen($sql_day)-3);
+		if (isset($_GET['dayselect']) && (integer) $_GET['dayselect'] != 0) {
+			$the_day = (integer) $_GET['dayselect'];
+			$sql_where[] = 'day = ' . $the_day;
 		}
 		if (isset($_GET['from']) & $_GET['from'] != "0") {
 			// preg_match('/[0-2][0-9][\.:][0-5][0-9]/', $_GET['from'], $the_from);
@@ -100,15 +87,16 @@ function onk2019_shortcode($atts = [])
 
 		$days = $wpdb->get_results( "SELECT day, date, name FROM $day_table_name ORDER BY day" );
 
-		$o .= '<label><input type="checkbox" name="dayfilter[]" value="1"' .
-			(!isset($the_day1) || $the_day1 ? " checked" : "") . '/>' . htmlspecialchars($days[1]->name) . '</label>';
-		$o .= '<label><input type="checkbox" name="dayfilter[]" value="2"' .
-			(!isset($the_day2) || $the_day2 ? " checked" : "") . '/>' . htmlspecialchars($days[2]->name) . '</label>';
-		$o .= '<label><input type="checkbox" name="dayfilter[]" value="3"' .
-			(!isset($the_day3) || $the_day3 ? " checked" : "") . '/>' . htmlspecialchars($days[3]->name) . '</label>';
+		$o .= '<select name="dayselect" class="dayselect">';
+		$o .= '<option value="" ' . (!isset($the_day) ? "selected" : "") . '><b>Alle Tage</b></option>';
+		foreach (array(1, 2, 3) as $day) {
+			$o .= '<option value="' . $day . '" ' . ($day == $the_day ? "selected" : "") . '>'
+				. htmlspecialchars($days[$day]->name) . '</option>';
+		}
+		$o .= '</select>';
+
 		$o .= '<label>ab <input type="number" name="from" min="0", max="23" value="' .
 			(isset($the_from) ? $the_from_hour : "0") . '" /> Uhr</label>';
-		$o .= '<br />';
 
 		$cats = $wpdb->get_results( "SELECT id, name FROM $category_table_name" );
 		$o .= '<select name="category" class="category">';
