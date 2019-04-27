@@ -49,7 +49,7 @@
 .onk_chooseview .onk_chosen,
 .onk_chooseview a:hover .onk_chosen {
 	color: #fff;
-	background-color: #70a99a;
+	background-color: #66c987;
 }
 
 .onk_chooseview .onk_search {
@@ -125,7 +125,7 @@
 .onk_filter input[type="button"]:active,
 .onk_filter input[type="submit"]:active,
 .onk_filter a.button:active {
-	background-color: #70a99a;
+	background-color: #66c987;
 	border: 2px solid #fff;
 	border-radius: 2px;
 	color: #fff;
@@ -176,21 +176,21 @@ input[type="submit"]:active.onk_reset {
 	width: 280px;
 	height: 95%;
 	flex-grow: 1;
-	background-color: #f6f6f6;
+	background-color: 77777717;
 	border-left: 1px solid #777777;
 	line-height: 1.4em;
 }
 .onk_general_day1 {
-	background-color: #f1414507;
-	border-color: #f14145;
+	background-color: #fbbfa117;
+	border-color: #fbbfa1;
 }
 .onk_general_day2 {
-	background-color: #6aabe107;
-	border-color: #6aabe1;
+	background-color: #66c98717;
+	border-color: #66c987;
 }
 .onk_general_day3 {
-	background-color: #fbbfac07;
-	border-color: #fbbfac;
+	background-color: #fff20017;
+	border-color: #fff200;
 }
 
 a.onk_eventlink {
@@ -199,7 +199,7 @@ a.onk_eventlink {
 	color: #000;
 }
 .onk_eventlink :hover {
-	background-color: #fefefe;
+	background-color: #fdfdfd;
 }
 .onk_eventlink :hover .onk_number {
 	display: inline;
@@ -252,32 +252,6 @@ a.onk_eventlink {
 	font-style: italic;
 }
 
-/*
-@media screen and (max-width: 640px) {
-	.onk_general {
-		line-height: 1.1;
-	}
-
-	.onk_time {
-		width: 5.5em;
-	}	
-	.onk_where {
-		float: none;
-	}
-	.onk_where::before {
-		content: ' ';
-		display: block;
-	}
-	.onk_when::before {
-		content: ' ';
-		display: block;
-	}
-	.onk_when {
-		float: none;
-	}
-}
-*/
-
 a.leaflet-popup-close-button {
 	text-decoration: none;
 	box-shadow: none;
@@ -298,16 +272,16 @@ a.leaflet-popup-close-button {
 	border-left: 4px solid #555;
 }
 .info {
-	border-color: #70d585;
+	border-color: #69a9df;
 }
 .day1 {
-	border-color: #f14145;
+	border-color: #fbbfa1;
 }
 .day2 {
-	border-color: #6aabe1;
+	border-color: #66c987;
 }
 .day3 {
-	border-color: #fbbfac;
+	border-color: #fff200;
 }
 .onk_map .onk_eventlink :hover {
 }
@@ -354,19 +328,19 @@ a.leaflet-popup-close-button {
 	text-align: center;
 }
 .onk_map_icon_info {
-	background-color: #70d585;
+	background-color: #69a9df;
 }
 .onk_map_icon_day0 {
 	background-color: #ffffff;
 }
 .onk_map_icon_day1 {
-	background-color: #f14145;
+	background-color: #fbbfa1;
 }
 .onk_map_icon_day2 {
-	background-color: #6aabe1;
+	background-color: #66c987;
 }
 .onk_map_icon_day3 {
-	background-color: #fbbfac;
+	background-color: #fff200;
 }
 
 .onk_details p {
