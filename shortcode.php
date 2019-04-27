@@ -162,7 +162,7 @@ function onk2019_shortcode($atts = [])
 			}
 		}
 		$sql_query = "SELECT * FROM $table_name AS events " .
-			$sql_where_str . " ORDER BY day, time_start, time_end, name ASC";
+			$sql_where_str . " ORDER BY day, time_start, time_end, id ASC";
 		// echo $sql_query; 
 
 		$result = $wpdb->get_results( $sql_query ); 
