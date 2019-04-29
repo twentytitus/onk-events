@@ -49,7 +49,7 @@
 .onk_chooseview .onk_chosen,
 .onk_chooseview a:hover .onk_chosen {
 	color: #fff;
-	background-color: #66c987;
+	background-color: #4fb598;
 }
 
 .onk_chooseview .onk_search {
@@ -125,7 +125,7 @@
 .onk_filter input[type="button"]:active,
 .onk_filter input[type="submit"]:active,
 .onk_filter a.button:active {
-	background-color: #66c987;
+	background-color: #4fb598;
 	border: 2px solid #fff;
 	border-radius: 2px;
 	color: #fff;
@@ -176,20 +176,20 @@ input[type="submit"]:active.onk_reset {
 	width: 280px;
 	height: 95%;
 	flex-grow: 1;
-	background-color: 77777717;
+	background-color: 77777714;
 	border-left: 1px solid #777777;
 	line-height: 1.4em;
 }
 .onk_general_day1 {
-	background-color: #fbbfa117;
+	background-color: #fbbfa114;
 	border-color: #fbbfa1;
 }
 .onk_general_day2 {
-	background-color: #66c98717;
+	background-color: #66c98714;
 	border-color: #66c987;
 }
 .onk_general_day3 {
-	background-color: #fff20017;
+	background-color: #fff20014;
 	border-color: #fff200;
 }
 
