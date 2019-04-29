@@ -97,15 +97,20 @@
 	font-size: 110%;
 }
 .onk_filter select {
-	background-color: #f6f6f6;
+	background-color: #fafafa;
 	border: 0;
-	margin: .3em 0 .3em 0;
-	width: 14em;
-	height: 2em;
+	margin: .3em 0.15em;
+	height: 1.9em;
 	font-family: Source Sans Pro, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 	font-size: 120%;
 }
+.onk_filter select.categoryselect {
+	width: 14em;
+}
 .onk_filter select.dayselect {
+	width: 6em;
+}
+.onk_filter select.timeselect {
 	width: 6em;
 }
 

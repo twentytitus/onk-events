@@ -95,11 +95,19 @@ function onk2019_shortcode($atts = [])
 		}
 		$o .= '</select>';
 
-		$o .= '<label>ab <input type="number" name="from" min="0", max="23" value="' .
-			(isset($the_from) ? $the_from_hour : "0") . '" /> Uhr</label>';
+		/* $o .= '<label>ab <input type="number" name="from" min="0", max="23" value="' .
+			(isset($the_from) ? $the_from_hour : "0") . '" /> Uhr</label>'; */
+
+		$o .= '<select name="from" class="timeselect">';
+		$o .= '<option value="" ' . (!isset($the_from) || $the_from == 0 ? "selected" : "") . '><b>Alle Zeiten</b></option>';
+		foreach (array(10, 12, 14, 16, 18, 20) as $hour) {
+			$o .= '<option value="' . $hour . '" ' . ($hour == $the_from_hour ? "selected" : "") . '>'
+				. 'ab ' . $hour . ' Uhr' . '</option>';
+		}
+		$o .= '</select>';
 
 		$cats = $wpdb->get_results( "SELECT id, name FROM $category_table_name" );
-		$o .= '<select name="category" class="category">';
+		$o .= '<select name="category" class="categoryselect">';
 		$o .= '<option value="" ' . (!isset($the_cat) ? "selected" : "") . '><b>Alle Kategorien</b></option>';
 		foreach ($cats as $cat) {
 			$o .= '<option value="' . $cat->id . '" ' . ($cat->id == $the_cat ? "selected" : "") . '>'
