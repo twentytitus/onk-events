@@ -91,7 +91,8 @@ function onk2019_shortcode($atts = [])
 		$o .= '<option value="" ' . (!isset($the_day) ? "selected" : "") . '><b>Alle Tage</b></option>';
 		foreach (array(1, 2, 3) as $day) {
 			$o .= '<option value="' . $day . '" ' . ($day == $the_day ? "selected" : "") . '>'
-				. htmlspecialchars($days[$day]->name) . '</option>';
+	                        . strftime( '%a, %e. %b', strtotime( htmlspecialchars($days[$day]->date) ) )
+				. '</option>';
 		}
 		$o .= '</select>';
 

@@ -19,7 +19,7 @@ foreach ($result as $row)
 	if ($row->day != $old_day) {
 		$o .= '<div class="onk_day_header">' 
 			// FIXME: There is a better way to do this
-			. htmlspecialchars($days[(integer) $row->day]->name)
+	                . strftime( '%A, %e. %B', strtotime( htmlspecialchars($days[(integer) $row->day]->date) ) )
 			. '</div>';
 		$day_class = 'onk_general_day' . htmlspecialchars($row->day);
 	}	
