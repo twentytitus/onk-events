@@ -5,6 +5,14 @@ $days = $wpdb->get_results( "SELECT day, date, name FROM $day_table_name ORDER B
 $categories = $wpdb->get_results( "SELECT id, name FROM $category_table_name WHERE id IN (" .
 	htmlspecialchars($row->categories) . ") ORDER BY name" );
 
+# count the visit to this page
+if (!is_user_logged_in()) {
+	$wpdb->insert($count_table_name, array(
+		'event' => $row->id,
+		'date' => current_time('Y-m-d')
+	), array('%d', '%s'));
+}
+
 if ( empty( $row ) ) {
 	$o .= '<div>Veranstaltung nicht gefunden.<br>&nbsp;<br>'
 		. 'Bleib neugierig und schau im <a href="' . $base_uri . '">Programm</a> '

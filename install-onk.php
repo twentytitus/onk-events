@@ -11,7 +11,7 @@ function onk2019_install() {
 	
 	$table_name = $wpdb->prefix . 'onk2019';
 	$sql = "CREATE TABLE $table_name (
-		id mediumint(9) NOT NULL,
+		id smallint NOT NULL,
 		name varchar(255) NOT NULL,
 		description varchar(2048) NULL,
 		categories varchar(255) NULL,
@@ -35,7 +35,7 @@ function onk2019_install() {
 
 	$category_table_name = $wpdb->prefix . 'onk2019_categories';
 	$sql = "CREATE TABLE $category_table_name (
-		id mediumint(9) NOT NULL,
+		id smallint NOT NULL,
 		name varchar(255) NOT NULL,
 		PRIMARY KEY  (id)
 	) $charset_collate;";
@@ -43,10 +43,19 @@ function onk2019_install() {
 
 	$day_table_name = $wpdb->prefix . 'onk2019_days';
 	$sql = "CREATE TABLE $day_table_name (
-		day mediumint(2) NOT NULL,
+		day tinyint NOT NULL,
 		date date NOT NULL,
 		name varchar(32) NOT NULL,
 		PRIMARY KEY  (day)
+	) $charset_collate;";
+	dbDelta( $sql );
+
+	$count_table_name = $wpdb->prefix . 'onk2019_counter';
+	$sql = "CREATE TABLE $count_table_name (
+		id int NOT NULL AUTO_INCREMENT,
+		event smallint NOT NULL,
+		date date NOT NULL,
+		PRIMARY KEY  (id)
 	) $charset_collate;";
 	dbDelta( $sql );
 

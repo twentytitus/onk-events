@@ -24,6 +24,7 @@ function onk2019_shortcode($atts = [])
 	global $wpdb;
 	$table_name = $wpdb->prefix . 'onk2019';
 	$category_table_name = $wpdb->prefix . 'onk2019_categories';
+	$count_table_name = $wpdb->prefix . 'onk2019_counter';
 	$day_table_name = $wpdb->prefix . 'onk2019_days';
 	
 	preg_match('/([^?]*).*/', $_SERVER["REQUEST_URI"], $base_uri);
