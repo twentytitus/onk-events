@@ -13,13 +13,11 @@ if ( empty( $row ) ) {
 else {
 	$o .= '<div class="onk_details">';
 
-	$o .= '<p class="onk_details_link_back" style="float: left;">';
+	$o .= '<p class="onk_details_number">#' . (integer) $row->id . '</p>';	
+
+	$o .= '<p class="onk_details_link_back" style="text-align: left;">';
 	$o .= '<a href="' . $base_uri . '">&lt; Alle Veranstaltungen</a>';
 	$o .= '</p>';
-
-	$o .= '<div class="onk_details_number onk_map_icon_day' . (integer) $row->day . '">' .
-		'<p class="onk_map_icon_text">' . (integer) $row->id .
-		'</p></div>';	
 
 	$o .= '<h3 class="onk_details_eventname">';
 	$o .= htmlspecialchars($row->name);
@@ -36,16 +34,7 @@ else {
 		$o .= '</p>';
 	}
 
-	$o .= '<p class="onk_details_organiser">';
-	$o .= 'Veranstalter*in: ';
-	if (!empty ($row->link_organiser))
-		$o .= '<a href="' . htmlspecialchars($row->link_organiser) . '" target="blank">'
-			. htmlspecialchars($row->organiser) . '</a>';
-	else
-		$o .= htmlspecialchars($row->organiser);
-	$o .= '</p>';
-
-	$o .= '<p class="onk_details_properties">';
+	$o .= '<p class="onk_details_properties">&nbsp;';
         if ($row->kids == 1) {
 		$o .= '&#127880; kinderfreundlich';
         }
@@ -55,6 +44,15 @@ else {
         if ($row->wheelchair == 2) {
 		$o .= ' <span class="limited_accessibility">&#9855;</span> eingeschränkt barrierefrei';
         }
+	$o .= '</p>';
+
+	$o .= '<p class="onk_details_organiser">';
+	$o .= 'Veranstalter*in: ';
+	if (!empty ($row->link_organiser))
+		$o .= '<a href="' . htmlspecialchars($row->link_organiser) . '" target="blank">'
+			. htmlspecialchars($row->organiser) . '</a>';
+	else
+		$o .= htmlspecialchars($row->organiser);
 	$o .= '</p>';
 
 	$o .= '<p class="onk_details_when">';
