@@ -13,10 +13,14 @@ if ( empty( $row ) ) {
 else {
 	$o .= '<div class="onk_details">';
 
+	$o .= '<p class="onk_details_link_back" style="float: left;">';
+	$o .= '<a href="' . $base_uri . '">&lt; Alle Veranstaltungen</a>';
+	$o .= '</p>';
+
 	$o .= '<div class="onk_details_number onk_map_icon_day' . (integer) $row->day . '">' .
 		'<p class="onk_map_icon_text">' . (integer) $row->id .
 		'</p></div>';	
-	
+
 	$o .= '<h3 class="onk_details_eventname">';
 	$o .= htmlspecialchars($row->name);
 	$o .= '</h3>';
