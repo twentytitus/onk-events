@@ -48,7 +48,7 @@ function onk2019_shortcode($atts = [])
 			$the_from = $the_from_hour . ':00';
 			$sql_where[] = "(time_start >= '" . $the_from . "'" . 
 				" OR time_end > '" . $the_from . "'" .  // still running
-				" OR (time_end <= '10:00' AND time_start < '" . $the_from . "' AND time_end < time_start))"; // runs past midnight
+				" OR (time_end <= '08:00' AND time_start < '" . $the_from . "' AND time_end < time_start))"; // runs past midnight
 		}
 		if (isset($_GET['category']) & (integer) $_GET['category'] != 0) {
 			$the_cat = (integer) $_GET['category'];
@@ -101,7 +101,7 @@ function onk2019_shortcode($atts = [])
 			(isset($the_from) ? $the_from_hour : "0") . '" /> Uhr</label>'; */
 
 		$o .= '<select name="from" class="timeselect">';
-		$o .= '<option value="" ' . (!isset($the_from) || $the_from == 0 ? "selected" : "") . '><b>Alle Zeiten</b></option>';
+		$o .= '<option value="0" ' . (!isset($the_from) || $the_from == 0 ? "selected" : "") . '><b>Alle Zeiten</b></option>';
 		foreach (array(10, 12, 14, 16, 18, 20) as $hour) {
 			$o .= '<option value="' . $hour . '" ' . ($hour == $the_from_hour ? "selected" : "") . '>'
 				. 'ab ' . $hour . ' Uhr' . '</option>';
