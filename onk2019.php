@@ -5,7 +5,7 @@ Plugin URI:  ...
 Description: The event list for Offenes Neukölln 2019
 Version:     1.1
 Author:      Titus Laska
-Author URI:  
+Author URI:  https://github.com/twentytitus
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Domain Path: /languages
