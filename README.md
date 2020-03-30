@@ -15,6 +15,12 @@ useful for anyone.
 - List view
 - Map view
 - Filtering of events (by time, categories, fulltext search)
+- Very rudimentary click statistics (in admin interface)
+
+## Status
+
+It works. And it looks nice. But it is quite a quick hack, so don't expect high
+code quality.
 
 ## Installation
 
