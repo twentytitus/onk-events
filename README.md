@@ -1,14 +1,13 @@
 # Wordpress Plugin for the Offenes Neukölln Programme
 
-"[Offenes Neukölln](https:///www.offenes-neukoelln.de)" is a local festival
-against racism in Berlin's district Neukölln. It promotes a diverse, open, and
+"[Offenes Neukölln](https:///www.offenes-neukoelln.de)" is a local anti-racist
+festival in Berlin's district Neukölln. It promotes a diverse, open, and
 solidary neighbourhood and is entirely coordinated by a group volunteers of
 [Bündnis Neukölln](https://www.buendnis-neukoelln.de).
 
 The more than 100 events of the festival are presented on the festival website
-through a [Wordpres](https://www.wordpress.com/) plugin. The code is very
-specific to the particular event.  Neverless, I publish it here, in case it is
-useful for anyone.
+through a [Wordpress](https://www.wordpress.com/) plugin. The code is rather
+specific to the particular event. However, it might still be useful to someone.
 
 ## Features
 
@@ -19,8 +18,7 @@ useful for anyone.
 
 ## Status
 
-It works. And it looks nice. But it is quite a quick hack, so don't expect high
-code quality.
+It works. And it looks nice. Code quality could be improved.
 
 ## Installation
 
@@ -36,6 +34,6 @@ https://www.offenes-neukoelln.de/programm/programm-2019
 
 ## Contributions and Feedback
 
-... are always welcome: titus@buendnis-neukoelln.de or
+... are always welcome: titus [at] buendnis-neukoelln.de or
 https://github.com/twentytitus/
 
