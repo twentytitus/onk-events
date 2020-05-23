@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/wp-content/plugins/onk2019/leaflet/leaflet.css" />
-<script type="text/javascript" src="/wp-content/plugins/onk2019/leaflet/leaflet.js"></script>
-<script type="text/javascript" src="/wp-content/plugins/onk2019/map.js"></script>
+<link rel="stylesheet" href="<?php echo plugins_url($plugin = "onk2019"); ?>/leaflet/leaflet.css" />
+<script type="text/javascript" src="<?php echo plugins_url($plugin = "onk2019"); ?>/leaflet/leaflet.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url($plugin = "onk2019"); ?>/map.js"></script>
 
 <noscript><br>Um die Veranstaltungen auf einer interaktiven Karte zu sehen, musst du leider Javascript in deinem Browser aktivieren.</noscript>
 

@@ -134,9 +134,9 @@ else {
 		else {                     $icon_class = 'onk_map_icon';      }
 ?>
 
-		<link rel="stylesheet" href="wp-content/plugins/onk-events/leaflet/leaflet.css" />
-		<script type="text/javascript" src="wp-content/plugins/onk-events/leaflet/leaflet.js"></script>
-		<script type="text/javascript" src="wp-content/plugins/onk-events/map.js"></script>
+		<link rel="stylesheet" href="<?php echo plugins_url($plugin = "onk2019"); ?>/leaflet/leaflet.css" />
+		<script type="text/javascript" src="<?php echo plugins_url($plugin = "onk2019"); ?>/leaflet/leaflet.js"></script>
+		<script type="text/javascript" src="<?php echo plugins_url($plugin = "onk2019"); ?>/map.js"></script>
 	
 		<script type="text/javascript">
 		<!--
